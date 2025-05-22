@@ -2,11 +2,12 @@ import Image from "next/image";
 import React from "react";
 import SearchBar from "./SearchBar";
 import Manage from "./Manage";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
     <nav className="h-[15vh] flex items-center justify-between">
-      <div className="">
+      <Link href="/" className="">
         <Image
           src="/assets/logo.svg"
           alt="company logo"
@@ -21,7 +22,7 @@ const Navbar = () => {
           height={24}
           className="flex md:hidden min-w-[24px] min-h-[24px]"
         />
-      </div>
+      </Link>
       <SearchBar />
       <Manage />
     </nav>

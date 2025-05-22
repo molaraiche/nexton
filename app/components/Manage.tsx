@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
 import { FiUser } from "react-icons/fi";
-import { BsCartDash } from "react-icons/bs";
 import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
+import Cart from "./Cart";
 const Manage = () => {
   const [menu, setMenu] = useState(false);
 
@@ -16,13 +16,11 @@ const Manage = () => {
           menu ? "translate-x-[0%]" : "-translate-x-[200%]"
         }`}
       >
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-5 flex-col md:flex-row">
           <Link href="" className="">
-            <FiUser className="w-6 h-6" />
+            <FiUser className="w-6 h-6 text-default md:text-body-text-color" />
           </Link>
-          <button className="">
-            <BsCartDash className="w-6 h-6" />
-          </button>
+          <Cart />
         </div>
       </div>
       <div className="flex md:hidden">
