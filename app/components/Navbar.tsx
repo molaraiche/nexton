@@ -5,21 +5,21 @@ import Manage from "./Manage";
 
 const Navbar = () => {
   return (
-    <nav className="h-[15vh] flex items-center justify-between w-full">
+    <nav className="h-[15vh] flex items-center justify-between">
       <div className="">
         <Image
           src="/assets/logo.svg"
           alt="company logo"
           width={100}
           height={100}
-          className="hidden md:flex"
+          className="hidden md:flex  "
         />
         <Image
           src="/assets/mini-logo.svg"
           alt="company logo"
           width={24}
           height={24}
-          className="flex md:hidden"
+          className="flex md:hidden min-w-[24px] min-h-[24px]"
         />
       </div>
       <SearchBar />

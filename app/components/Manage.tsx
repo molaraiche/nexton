@@ -16,12 +16,14 @@ const Manage = () => {
           menu ? "translate-x-[0%]" : "-translate-x-[200%]"
         }`}
       >
-        <Link href="" className="mx-2">
-          <FiUser className="w-6 h-6" />
-        </Link>
-        <button className="mx-2">
-          <BsCartDash className="w-6 h-6" />
-        </button>
+        <div className="flex items-center gap-5">
+          <Link href="" className="">
+            <FiUser className="w-6 h-6" />
+          </Link>
+          <button className="">
+            <BsCartDash className="w-6 h-6" />
+          </button>
+        </div>
       </div>
       <div className="flex md:hidden">
         {menu ? (
