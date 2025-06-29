@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #111827;
+  --color-body-text-color: #4b5563;
+  --color-vibrant: #0ea5e9;
+  --color-border: #e5e7eb;
+  --color-default: #ffff;
+  --color-gray-bg: #f8f8f8;
+  --font-poppins: var(--font-poppins);
+}
+@layer components {
+  /* PC & tablet size */
+  .h1-screen {
+    @apply font-semibold text-[64px] font-poppins leading-[72px] text-primary;
+  }
+  .h2-screen {
+    @apply font-semibold font-poppins text-4xl leading-[40px] text-primary;
+  }
+  .h3-screen {
+    @apply font-semibold font-poppins text-2xl leading-8 text-primary;
+  }
+  .h4-screen {
+    @apply font-semibold text-lg font-poppins leading-7 text-primary;
+  }
+  .h5-screen {
+    @apply font-semibold text-base font-poppins leading-6 text-primary;
+  }
+  /* phone fonts size */
+  .h1-device {
+    @apply font-semibold text-3xl font-poppins leading-[30px] text-primary;
+  }
+  .h2-device {
+    @apply font-semibold font-poppins text-2xl leading-8 text-primary;
+  }
+  .h3-device {
+    @apply font-semibold font-poppins text-xl leading-7 text-primary;
+  }
+  .h4-device {
+    @apply font-semibold text-base font-poppins leading-6 text-primary;
+  }
+  .h5-device {
+    @apply font-semibold text-sm font-poppins leading-5 text-primary;
+  }
+
+  /* body */
+
+  .body-regular-20 {
+    @apply font-poppins text-xl leading-7 font-normal text-body-text-color;
+  }
+  .body-regular-18 {
+    @apply font-poppins  text-lg leading-7 font-normal text-body-text-color;
+  }
+  .body-regular-16 {
+    @apply font-poppins text-base leading-6 font-normal text-body-text-color;
+  }
+  .body-regular-14 {
+    @apply font-poppins text-sm leading-5 font-normal text-body-text-color;
+  }
+  .body-regular-12 {
+    @apply font-poppins text-[12px] leading-4 font-normal text-body-text-color;
+  }
+
+  .body-medium-20 {
+    @apply font-poppins text-xl leading-7 font-medium text-body-text-color;
+  }
+  .body-medium-18 {
+    @apply font-poppins  text-lg leading-7 font-medium text-body-text-color;
+  }
+  .body-medium-16 {
+    @apply font-poppins text-base leading-6 font-medium text-body-text-color;
+  }
+  .body-medium-14 {
+    @apply font-poppins text-sm leading-5 font-medium text-body-text-color;
+  }
+  .body-medium-12 {
+    @apply font-poppins text-[12px] leading-4 font-medium text-body-text-color;
+  }
+
+  .body-semibold-20 {
+    @apply font-poppins text-xl leading-7 font-semibold text-body-text-color;
+  }
+  .body-semibold-18 {
+    @apply font-poppins  text-lg leading-7 font-semibold text-body-text-color;
+  }
+  .body-semibold-16 {
+    @apply font-poppins text-base leading-6 font-semibold text-body-text-color;
+  }
+  .body-semibold-14 {
+    @apply font-poppins text-sm leading-5 font-semibold text-body-text-color;
+  }
+  .body-semibold-12 {
+    @apply font-poppins text-[12px] leading-4 font-semibold text-body-text-color;
+  }
+}
