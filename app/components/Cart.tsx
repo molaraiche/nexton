@@ -6,7 +6,6 @@ import { IoMdClose } from "react-icons/io";
 
 const Cart = () => {
   const [isVisible, setIsVisible] = useState(false);
-  console.log(isVisible);
   return (
     <div className="flex items-center w-full">
       <motion.button

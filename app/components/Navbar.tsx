@@ -13,14 +13,16 @@ const Navbar = () => {
           alt="company logo"
           width={100}
           height={100}
-          className="hidden md:flex  "
+          priority
+          className="hidden md:flex w-full"
         />
         <Image
           src="/assets/mini-logo.svg"
           alt="company logo"
           width={24}
           height={24}
-          className="flex md:hidden min-w-[24px] min-h-[24px]"
+          priority
+          className="flex md:hidden min-w-[24px] min-h-[24px] w-full"
         />
       </Link>
       <SearchBar />

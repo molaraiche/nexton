@@ -1,6 +1,7 @@
 "use client";
+import { images } from "@/constants/images";
 import "keen-slider/keen-slider.min.css";
-import { useKeenSlider } from "keen-slider/react"; // import from 'keen-slider/react.es' for to get an ES module
+import { useKeenSlider } from "keen-slider/react";
 import { BiSearch } from "react-icons/bi";
 const Sliders = () => {
   const [sliderRef] = useKeenSlider(
@@ -41,18 +42,13 @@ const Sliders = () => {
       },
     ]
   );
-  const imagesNumber = [
-    { id: 1, img: 1 },
-    { id: 2, img: 2 },
-    { id: 3, img: 3 },
-  ];
-  console.log(imagesNumber);
   return (
-    <div ref={sliderRef} className="keen-slider -z-50 ">
-      {imagesNumber.map((img) => (
+    <div ref={sliderRef} className="w-full keen-slider -z-50 ">
+      {images.map((img) => (
         <div
           key={img.id}
-          className={`bg-[url(/assets/hero-bg-${img.img}.jpg)] bg-no-repeat bg-left bg-cover h-[80vh] relative keen-slider__slide cursor-grab -z-50`}
+          className="bg-no-repeat bg-left bg-cover h-[80vh] relative keen-slider__slide cursor-grab -z-50"
+          style={{ backgroundImage: `url(${img.img})` }}
         >
           <div className="flex items-start justify-center flex-col h-[80vh] w-full md:w-[632px] ml-5 md:ml-[120px]">
             <p className="body-medium-20">Starting from: $49.99</p>
