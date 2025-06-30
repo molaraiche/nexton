@@ -4,7 +4,7 @@ import { credientielsType } from "@/types";
 
 const Credentiels = () => {
   return (
-    <div className="md:border-1 rounded-2xl font-poppins border-border flex h-[100px] container mx-auto mt-14  justify-center items-center gap-10 flex-wrap">
+    <div className="md:border-1 rounded-2xl font-poppins border-border flex container mx-auto my-14 justify-center md:justify-between  items-center flex-wrap">
       {credentiels.map((credit: credientielsType) => (
         <CredentielsCard
           key={credit.id}
