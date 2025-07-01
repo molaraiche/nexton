@@ -1,6 +1,6 @@
 const Card = () => {
   return (
-    <div className="bg-[url(/assets/bg-image.png)] h-[437px] w-full bg-no-repeat bg-right bg-[#F5F5F5] mx-auto container rounded-3xl font-poppins hidden md:flex">
+    <div className="bg-[url(/assets/bg-image.png)] h-[437px] w-full bg-no-repeat bg-right bg-[#F5F5F5] mx-auto container rounded-3xl font-poppins hidden md:flex mb-14">
       <div className="flex flex-col p-[120px]">
         <p className="text-xl text-body-text-color font-medium">
           100% Original Products
