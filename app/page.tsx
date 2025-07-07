@@ -1,7 +1,7 @@
 import Card from "./components/Card";
 import Credentiels from "./components/Credentiels";
 import Exploring from "./components/Exploring";
-import Projects from "./components/Projects";
+import Products from "./components/Products";
 import Sliders from "./components/Sliders";
 
 const App = () => {
@@ -10,11 +10,11 @@ const App = () => {
       <Sliders />
       <Credentiels />
       <Exploring />
-      <Projects
+      <Products
         strong={"Recommendations"}
         paragraph={"Best matching products for you"}
       />
-      <Projects
+      <Products
         strong={"Best Sellers"}
         paragraph={"Best selling of the month"}
       />

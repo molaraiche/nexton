@@ -1,26 +1,26 @@
-import { categories } from "@/constants/filter/categories";
+import { sort } from "@/constants/filter/sort";
 import React from "react";
 
-const Categories = () => {
+const Sort = () => {
   return (
     <div className="font-poppins mb-10">
       <h3 className="text-lg text-primary text-[28px] font-semibold">
-        Categories
+        Sort order
       </h3>
       <div className="">
-        {categories.map((cat) => (
+        {sort.map((sort) => (
           <div
             className="flex items-center gap-2 mt-4 cursor-pointer"
-            key={cat.id}
+            key={sort.id}
           >
             <input
               type="checkbox"
-              name={cat.name}
-              id={cat.name}
+              name={sort.name}
+              id={sort.name}
               className="custom-checkbox"
             />
-            <label htmlFor={cat.name} className="text-body-text-color text-sm">
-              {cat.name}
+            <label htmlFor={sort.name} className="text-body-text-color text-sm">
+              {sort.name}
             </label>
           </div>
         ))}
@@ -29,4 +29,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default Sort;

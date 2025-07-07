@@ -1,17 +1,14 @@
 "use client";
 import { useState } from "react";
 
-export default function PriceRange() {
+const PriceRange = () => {
   const [minPrice, setMinPrice] = useState(100);
   const [maxPrice, setMaxPrice] = useState(500);
 
-  // Handle changes from range input
   const handleRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
-
-    // Update both prices together (move them in sync)
     const range = maxPrice - minPrice;
-    const newMin = Math.max(10, value);
+    const newMin = Math.max(5, value);
     const newMax = Math.min(999, newMin + range);
 
     setMinPrice(newMin);
@@ -19,14 +16,11 @@ export default function PriceRange() {
   };
 
   return (
-    <form className="max-w-md mx-auto p-4 bg-white shadow-md rounded-xl space-y-4">
+    <form className="font-poppins">
       <div>
-        <label
-          htmlFor="priceRange"
-          className="block text-sm font-medium text-gray-700 mb-2"
-        >
-          Price Range Control
-        </label>
+        <h3 className="text-lg text-primary text-[28px] font-semibold">
+          Price range
+        </h3>
         <input
           type="range"
           id="priceRange"
@@ -36,7 +30,7 @@ export default function PriceRange() {
           step="10"
           value={minPrice}
           onChange={handleRangeChange}
-          className="w-full"
+          className="w-full my-4 bg-[#0EA5E9]"
         />
       </div>
 
@@ -57,7 +51,7 @@ export default function PriceRange() {
               min="10"
               max={maxPrice - 10}
               step="10"
-              className="w-full py-1 outline-none"
+              className="w-full py-1 outline-none font-semibold"
               value={minPrice}
               onChange={(e) => {
                 const value = Math.min(Number(e.target.value), maxPrice - 10);
@@ -84,7 +78,7 @@ export default function PriceRange() {
               min={minPrice + 10}
               max="999"
               step="10"
-              className="w-full py-1 outline-none"
+              className="w-full py-1 outline-none font-semibold"
               value={maxPrice}
               onChange={(e) => {
                 const value = Math.max(Number(e.target.value), minPrice + 10);
@@ -97,4 +91,6 @@ export default function PriceRange() {
       </div>
     </form>
   );
-}
+};
+
+export default PriceRange;

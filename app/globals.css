@@ -95,14 +95,14 @@
 }
 .custom-checkbox {
   position: relative;
-  width: 20px; /* size of the square */
+  width: 20px;
   height: 20px;
-  appearance: none; /* removes default checkbox style */
+  appearance: none;
   -webkit-appearance: none;
   background-color: white;
-  border: 1px solid #94a3b8; /* border color and thickness */
+  border: 1px solid #94a3b8;
   cursor: pointer;
-  border-radius: 4px; /* optional: makes the square corners rounded */
+  border-radius: 4px;
   transition: all 0.2s ease;
 }
 

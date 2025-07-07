@@ -3,12 +3,12 @@ import Slogan from "./slogan";
 import ProductCard from "./ProductCard";
 import { productType } from "@/types";
 
-const Projects = ({
+const Products = ({
   strong,
   paragraph,
 }: {
-  strong: string;
-  paragraph: string;
+  strong?: string;
+  paragraph?: string;
 }) => {
   return (
     <section className="mx-auto container my-20 font-poppins">
@@ -31,4 +31,4 @@ const Projects = ({
   );
 };
 
-export default Projects;
+export default Products;
