@@ -7,7 +7,7 @@ import { IoMdClose } from "react-icons/io";
 const Cart = () => {
   const [isVisible, setIsVisible] = useState(false);
   return (
-    <div className="flex items-center w-full">
+    <div className="flex items-center w-full ">
       <motion.button
         onClick={() => setIsVisible(!isVisible)}
         whileTap={{ y: 1 }}
@@ -28,7 +28,7 @@ const Cart = () => {
             exit={{ opacity: 0, scale: 0 }}
             key="box"
           >
-            <div className="bg-primary text-default w-full h-[150px] mt-5 md:w-[400px] md:h-[600px] absolute flex items-center justify-center top-[20vh] md:top-[5vh] right-0 flex-col">
+            <div className="bg-primary text-default w-full h-[150px] mt-5 md:w-[400px] md:h-[600px] flex items-center justify-center absolute top-[20vh] md:top-[5vh] right-0 z-50 flex-col">
               <div className="h-[100px] flex items-center justify-end px-10 w-full">
                 <IoMdClose
                   onClick={() => setIsVisible(false)}
