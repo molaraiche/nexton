@@ -93,3 +93,27 @@
     @apply font-poppins text-[12px] leading-4 font-semibold text-body-text-color;
   }
 }
+.custom-checkbox {
+  position: relative;
+  width: 20px; /* size of the square */
+  height: 20px;
+  appearance: none; /* removes default checkbox style */
+  -webkit-appearance: none;
+  background-color: white;
+  border: 1px solid #94a3b8; /* border color and thickness */
+  cursor: pointer;
+  border-radius: 4px; /* optional: makes the square corners rounded */
+  transition: all 0.2s ease;
+}
+
+.custom-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: -5px;
+  width: 8px;
+  height: 20px;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  transform: rotate(35deg);
+}

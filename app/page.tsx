@@ -1,10 +1,8 @@
 import Card from "./components/Card";
 import Credentiels from "./components/Credentiels";
 import Exploring from "./components/Exploring";
-import Footer from "./components/Footer";
 import Projects from "./components/Projects";
 import Sliders from "./components/Sliders";
-import SmallFooter from "./components/SmallFooter";
 
 const App = () => {
   return (
@@ -21,8 +19,6 @@ const App = () => {
         paragraph={"Best selling of the month"}
       />
       <Card />
-      <Footer />
-      <SmallFooter />
     </section>
   );
 };
