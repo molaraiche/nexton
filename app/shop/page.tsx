@@ -9,6 +9,7 @@ import Pagination from "@/components/Pagination";
 import { supabase } from "@/supabase";
 import { useRouter, useSearchParams } from "next/navigation";
 import { productType } from "@/types";
+import { Suspense } from "react";
 
 const Shop = () => {
   const searchParams = useSearchParams();
@@ -86,42 +87,44 @@ const Shop = () => {
   }, [selectedCategory, searchQuery, currentPage]);
 
   return (
-    <section className="flex mx-auto container mt-10 mb-20">
-      <div className="w-[25%] flex flex-col justify-start ">
-        <Categories
-          selectedCategory={selectedCategory}
-          onChange={setSelectedCategory}
-        />
-        <PriceRange />
-        <Sort />
-      </div>
-      <div className="w-[75%] flex flex-col items-center gap-5">
-        {loading && (
-          <div className="h-[50vh] flex items-center justify-center">
-            <span className="loader"></span>
-          </div>
-        )}
-        {error && <div className="text-red-600">{error}</div>}
+    <Suspense fallback={<div>Loading shop...</div>}>
+      <section className="flex mx-auto container mt-10 mb-20">
+        <div className="w-[25%] flex flex-col justify-start ">
+          <Categories
+            selectedCategory={selectedCategory}
+            onChange={setSelectedCategory}
+          />
+          <PriceRange />
+          <Sort />
+        </div>
+        <div className="w-[75%] flex flex-col items-center gap-5">
+          {loading && (
+            <div className="h-[50vh] flex items-center justify-center">
+              <span className="loader"></span>
+            </div>
+          )}
+          {error && <div className="text-red-600">{error}</div>}
 
-        {!loading && !error && (
-          <div className="flex flex-wrap justify-center gap-5">
-            {products.length === 0 ? (
-              <div>No products found.</div>
-            ) : (
-              products.map((product) => (
-                <ProductCard key={product.id} {...product} />
-              ))
-            )}
-          </div>
-        )}
+          {!loading && !error && (
+            <div className="flex flex-wrap justify-center gap-5">
+              {products.length === 0 ? (
+                <div>No products found.</div>
+              ) : (
+                products.map((product) => (
+                  <ProductCard key={product.id} {...product} />
+                ))
+              )}
+            </div>
+          )}
 
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={(page) => setCurrentPage(page)}
-        />
-      </div>
-    </section>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={(page) => setCurrentPage(page)}
+          />
+        </div>
+      </section>
+    </Suspense>
   );
 };
 
