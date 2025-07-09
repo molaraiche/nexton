@@ -16,7 +16,7 @@ const PriceRange = () => {
   };
 
   return (
-    <form className="font-poppins mb-10">
+    <form className="font-poppins mb-10 w-[300px]">
       <div>
         <h3 className="text-lg text-primary text-[28px] font-semibold">
           Price range
@@ -30,7 +30,7 @@ const PriceRange = () => {
           step="10"
           value={minPrice}
           onChange={handleRangeChange}
-          className="w-full my-4 bg-[#0EA5E9]"
+          className="w-[300px] my-4 bg-[#0EA5E9]"
         />
       </div>
 
