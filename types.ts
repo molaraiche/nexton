@@ -18,6 +18,6 @@ export interface productType {
   category: string;
   review: number;
   sales: number;
-  newPrice: number;
+  price: number;
   oldPrice: number;
 }

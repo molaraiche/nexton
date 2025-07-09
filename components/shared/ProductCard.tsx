@@ -8,7 +8,7 @@ const ProductCard = ({
   category,
   review,
   sales,
-  newPrice,
+  price,
   oldPrice,
 }: productType) => {
   return (
@@ -41,7 +41,7 @@ const ProductCard = ({
             <p className="text-body-text-color text-base"> {category} </p>
           </div>
           <div className="">
-            <p className="text-primary font-semibold"> ${newPrice} </p>
+            <p className="text-primary font-semibold"> ${price} </p>
             <p className="text-body-text-color text-base  line-through">
               {" "}
               ${oldPrice}{" "}
@@ -50,8 +50,8 @@ const ProductCard = ({
         </div>
         <div className="flex items-center text-body-text-color font-semibold gap-1 mt-4">
           <FaStar className="text-[#FBBF24]" />
-          <span> {review}</span>
-          <span className="mx-1"> ({sales})</span>
+          <span> {review ? review : 0}</span>
+          <span className="mx-1"> ({sales ? sales : 0})</span>
         </div>
       </div>
     </div>
