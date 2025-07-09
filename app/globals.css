@@ -8,6 +8,8 @@
   --color-default: #ffff;
   --color-gray-bg: #f8f8f8;
   --font-poppins: var(--font-poppins);
+  --shadow-drop-1: 0 20 25 -5 #0000001a;
+  --shadow-drop-2: 0 8 10 -6 #0000001a;
 }
 @layer components {
   /* PC & tablet size */
@@ -116,4 +118,15 @@
   border: solid black;
   border-width: 0 2px 2px 0;
   transform: rotate(35deg);
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

@@ -1,5 +1,5 @@
 import { categories } from "@/constants/categories";
-import CategoryCard from "./CategoryCard";
+import CategoryCard from "./shared/CategoryCard";
 import { categoryType } from "@/types";
 import Slogan from "./slogan";
 

@@ -1,5 +1,5 @@
 import { credentiels } from "@/constants/credentiels";
-import CredentielsCard from "./CredentielsCard";
+import CredentielsCard from "./shared/CredentielsCard";
 import { credientielsType } from "@/types";
 
 const Credentiels = () => {

@@ -1,8 +1,8 @@
-import Card from "./components/Card";
-import Credentiels from "./components/Credentiels";
-import Exploring from "./components/Exploring";
-import Products from "./components/Products";
-import Sliders from "./components/Sliders";
+import Card from "../components/Card";
+import Credentiels from "../components/Credentiels";
+import Exploring from "../components/Exploring";
+import Products from "../components/Products";
+import Sliders from "../components/Sliders";
 
 const App = () => {
   return (

@@ -1,9 +1,10 @@
 import { products } from "@/constants/products";
-import Categories from "../components/Categories";
-import PriceRange from "../components/PriceRange";
-import ProductCard from "../components/ProductCard";
-import Sort from "../components/Sort";
+import Categories from "../../components/Categories";
+import PriceRange from "../../components/PriceRange";
+import ProductCard from "../../components/shared/ProductCard";
+import Sort from "../../components/Sort";
 import { productType } from "@/types";
+import Pagination from "@/components/Pagination";
 
 const Shop = () => {
   return (
@@ -58,6 +59,7 @@ const Shop = () => {
               sales={product.sales}
             />
           ))}
+          <Pagination />
         </div>
       </div>
     </section>

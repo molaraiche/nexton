@@ -17,7 +17,7 @@ const Manage = () => {
         }`}
       >
         <div className="flex items-center gap-5 flex-col md:flex-row">
-          <Link href="" className="">
+          <Link href="/login" className="">
             <FiUser className="w-6 h-6 text-default md:text-body-text-color" />
           </Link>
           <Cart />

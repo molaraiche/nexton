@@ -1,6 +1,6 @@
 import { products } from "@/constants/products";
 import Slogan from "./slogan";
-import ProductCard from "./ProductCard";
+import ProductCard from "./shared/ProductCard";
 import { productType } from "@/types";
 
 const Products = ({

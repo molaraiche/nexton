@@ -1,5 +1,6 @@
 "use client";
 import { AnimatePresence, motion } from "motion/react";
+import Link from "next/link";
 import { useState } from "react";
 import { BsCartDash } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
@@ -11,6 +12,7 @@ const Cart = () => {
       <motion.button
         onClick={() => setIsVisible(!isVisible)}
         whileTap={{ y: 1 }}
+        className="cursor-pointer"
       >
         <div className="relative font-poppins flex flex-row-reverse">
           <span className="bg-vibrant text-default w-5 h-5 flex items-center justify-center rounded-full absolute -top-2 -right-2">
@@ -37,7 +39,7 @@ const Cart = () => {
               </div>
               <div className="h-[500px] text-default flex items-center justify-center">
                 {" "}
-                Cart content (coming soon)
+                <Link href="/cart">Checkout</Link>
               </div>
             </div>
           </motion.div>

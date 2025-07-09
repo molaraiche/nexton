@@ -16,7 +16,7 @@ const PriceRange = () => {
   };
 
   return (
-    <form className="font-poppins">
+    <form className="font-poppins mb-10">
       <div>
         <h3 className="text-lg text-primary text-[28px] font-semibold">
           Price range
