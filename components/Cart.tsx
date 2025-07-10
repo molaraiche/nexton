@@ -27,7 +27,7 @@ const Cart = () => {
               className="whitespace-pre-wrap tracking-tighter"
             />
           </span>
-          <BsCartDash className="w-6 h-6 text-default md:text-body-text-color" />
+          <BsCartDash className="w-6 h-6 text-primary" />
         </div>
       </motion.button>
 
@@ -39,7 +39,7 @@ const Cart = () => {
             exit={{ opacity: 0, scale: 0 }}
             key="box"
           >
-            <div className="bg-primary text-default w-full mt-5 md:w-[600px] min-h-[400px] flex flex-col absolute top-[20vh] md:top-[5vh] right-0 z-50 p-5">
+            <div className="bg-primary text-default w-full mt-5 md:w-[600px] min-h-[400px] flex flex-col absolute top-[20vh] md:top-[10vh] rounded-xl right-0 z-50 p-5">
               <div className="flex justify-between items-center h-[100px]">
                 <h2 className="text-xl font-semibold">Your Cart</h2>
                 <IoMdClose
