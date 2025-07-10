@@ -3,6 +3,7 @@ import { useCart } from "@/context/CartContext";
 import { productType } from "@/types";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
+import { FaBagShopping } from "react-icons/fa6";
 
 const ProductCard = ({
   id,
@@ -15,8 +16,6 @@ const ProductCard = ({
   oldPrice,
 }: productType) => {
   const { addToCart } = useCart();
-
-  // create an object of the props to pass to addToCart
   const product = {
     id,
     image,
@@ -32,15 +31,10 @@ const ProductCard = ({
     <div className="font-poppins flex flex-col relative w-[309px] h-[448px]">
       <div className="">
         <div className="flex items-center justify-end">
-          <div
-            onClick={() => addToCart(product)}
-            className="w-9 h-9 bg-white flex items-center justify-center rounded-full absolute top-5 right-5 cursor-pointer z-10"
-          >
-            <Image
-              src={"/assets/cart.svg"}
-              width={16}
-              height={16}
-              alt={category}
+          <div className="w-9 h-9 bg-white flex items-center justify-center rounded-full absolute top-5 right-5 cursor-pointer z-10 ">
+            <FaBagShopping
+              onClick={() => addToCart(product)}
+              className="text-primary hover:text-vibrant w-5 h-5 ease-in-out duration-200"
             />
           </div>
         </div>

@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {});
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
+  apiVersion: "2025-06-30.basil", // Ensure this matches your Stripe version
+});
 
 export async function POST(req: NextRequest) {
   try {
@@ -22,13 +24,14 @@ export async function POST(req: NextRequest) {
         },
       ],
       mode: "payment",
-      success_url: `${req.nextUrl.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${req.nextUrl.origin}/success`,
       cancel_url: `${req.nextUrl.origin}/cancel`,
     });
 
+    // ✅ Return session ID for redirectToCheckout
     return NextResponse.json({ id: session.id });
   } catch (error) {
-    console.log(error);
+    console.error("Stripe checkout session error:", error);
     const errorMessage =
       error instanceof Error ? error.message : "An unknown error occurred";
     return NextResponse.json({ error: errorMessage }, { status: 500 });

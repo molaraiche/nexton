@@ -1,7 +1,4 @@
 "use client";
-
-import React from "react";
-
 const CancelledPayment: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-[200px] p-6 bg-red-50 rounded-xl shadow-md">
@@ -13,7 +10,6 @@ const CancelledPayment: React.FC = () => {
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        {/* Circle */}
         <circle
           cx="32"
           cy="32"
@@ -23,7 +19,6 @@ const CancelledPayment: React.FC = () => {
           strokeDasharray="188.4"
           strokeDashoffset="188.4"
         />
-        {/* Cross */}
         <line
           x1="20"
           y1="20"

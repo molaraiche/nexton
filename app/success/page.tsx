@@ -1,6 +1,6 @@
 "use client";
-
 import { useCart } from "@/context/CartContext";
+import Link from "next/link";
 import React, { useEffect } from "react";
 
 const SuccessPayment: React.FC = () => {
@@ -8,7 +8,8 @@ const SuccessPayment: React.FC = () => {
 
   useEffect(() => {
     clearCart();
-  }, [clearCart]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[200px] p-6 bg-green-50 rounded-xl shadow-md">
@@ -20,7 +21,6 @@ const SuccessPayment: React.FC = () => {
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        {/* Circle */}
         <circle
           cx="32"
           cy="32"
@@ -30,7 +30,6 @@ const SuccessPayment: React.FC = () => {
           strokeDasharray="188.4"
           strokeDashoffset="188.4"
         />
-        {/* Checkmark */}
         <polyline
           points="18 34 28 44 46 26"
           className="checkmark"
@@ -42,9 +41,15 @@ const SuccessPayment: React.FC = () => {
       <h2 className="text-2xl font-semibold text-green-700 mb-2">
         Payment Successful
       </h2>
-      <p className="text-green-600 max-w-xs text-center">
+      <p className="text-green-600 max-w-xs text-center mb-6">
         Thank you! Your payment has been processed successfully.
       </p>
+      <Link
+        href="/shop"
+        className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition"
+      >
+        Continue Shopping
+      </Link>
 
       <style jsx>{`
         svg {

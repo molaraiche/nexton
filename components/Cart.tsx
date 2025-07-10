@@ -49,7 +49,9 @@ const Cart = () => {
               </div>
               <div className="flex-grow m-3">
                 {cart.length === 0 ? (
-                  <p>Your cart is empty</p>
+                  <div className="flex items-center justify-center">
+                    <p className="font-medium">Your cart is empty</p>
+                  </div>
                 ) : (
                   cart.map((item) => (
                     <div

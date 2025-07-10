@@ -1,5 +1,4 @@
 "use client";
-
 import CheckoutButton from "@/components/CheckoutBtn";
 import CheckoutCard from "@/components/shared/CheckoutCard";
 import { useCart } from "@/context/CartContext";
@@ -25,14 +24,16 @@ const Checkout = () => {
           </div>
           <div className="flex flex-col justify-center w-full gap-6 px-5">
             {cart.length === 0 ? (
-              <div>Your cart is empty.</div>
+              <div className="text-center">
+                <p>Your cart is empty.</p>
+              </div>
             ) : (
               cart.map((item) => <CheckoutCard key={item.id} {...item} />)
             )}
           </div>
 
           <div className="flex items-end justify-center flex-col w-full gap-6 px-5 mt-5">
-            <CheckoutButton total={total} />
+            {total > 0 && <CheckoutButton total={total} />}
           </div>
         </div>
       </div>

@@ -15,14 +15,12 @@ const Pagination = ({
 
   const renderPageNumbers = () => {
     const pages: number[] = [];
-
-    // Show first page, current page, and last page with ellipsis
     if (totalPages <= 5) {
       return Array.from({ length: totalPages }, (_, i) => i + 1);
     }
 
     if (currentPage <= 3) {
-      pages.push(1, 2, 3, 4, -1, totalPages); // -1 represents ellipsis
+      pages.push(1, 2, 3, 4, -1, totalPages); 
     } else if (currentPage >= totalPages - 2) {
       pages.push(
         1,
@@ -51,7 +49,6 @@ const Pagination = ({
 
   return (
     <div className="font-poppins flex flex-wrap sm:flex-nowrap gap-1 items-center justify-center mt-12 px-4">
-      {/* Previous Button */}
       <button
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
@@ -59,8 +56,6 @@ const Pagination = ({
       >
         <FaChevronLeft />
       </button>
-
-      {/* Page Numbers */}
       {pages.map((n, i) =>
         n === -1 ? (
           <span
@@ -83,8 +78,6 @@ const Pagination = ({
           </button>
         )
       )}
-
-      {/* Next Button */}
       <button
         disabled={currentPage === totalPages}
         onClick={() => onPageChange(currentPage + 1)}

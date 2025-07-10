@@ -1,7 +1,7 @@
 import { categories } from "@/constants/categories";
 import CategoryCard from "./shared/CategoryCard";
 import { categoryType } from "@/types";
-import Slogan from "./slogan";
+import Slogan from "./Slogan";
 
 const Exploring = () => {
   return (

@@ -14,7 +14,6 @@ const CategoryCard = ({ title, details, link }: categoryType) => {
           href={link}
           className="flex items-center gap-2 uppercase text-body-text-color font-medium"
         >
-          {" "}
           Shop Now
           <GoArrowRight className="w-4 h-4" />
         </Link>

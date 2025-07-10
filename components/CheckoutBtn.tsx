@@ -49,7 +49,7 @@ export default function CheckoutButton({ total }: CheckoutButtonProps) {
       onClick={handleCheckout}
       disabled={loading}
     >
-      {loading ? "Processing..." : ` Proceed and pay ${total}`}
+      {loading ? "Processing..." : ` Proceed and pay $${total.toFixed(2)}`}
     </button>
   );
 }
