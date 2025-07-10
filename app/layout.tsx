@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import SmallFooter from "../components/SmallFooter";
 import Footer from "../components/Footer";
+import CartProviderWrapper from "./providers/CartProviderWrapper";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -25,14 +26,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} antialiased`}>
-        <main className="relative">
-          <header className="container mx-auto px-3 z-20 relative">
-            <Navbar />
-          </header>
-          <section className="relative z-0">{children}</section>
-          <Footer />
-          <SmallFooter />
-        </main>
+        <CartProviderWrapper>
+          <main className="relative">
+            <header className="container mx-auto px-3 z-20 relative">
+              <Navbar />
+            </header>
+            <section className="relative z-0">{children}</section>
+            <Footer />
+            <SmallFooter />
+          </main>
+        </CartProviderWrapper>
       </body>
     </html>
   );

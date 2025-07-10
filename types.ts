@@ -20,4 +20,5 @@ export interface productType {
   sales: number;
   price: number;
   oldPrice: number;
+  quantity?: number;
 }

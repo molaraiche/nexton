@@ -1,20 +1,21 @@
+"use client";
 import FormGrp from "@/components/shared/FormGrp";
 import Image from "next/image";
 import { FaRegUserCircle } from "react-icons/fa";
 import { CiCreditCard2 } from "react-icons/ci";
 import CheckoutCard from "@/components/shared/CheckoutCard";
+import { useCart } from "@/context/CartContext";
 
 const Checkout = () => {
+  const { cart } = useCart();
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   return (
     <section className="container mx-auto font-poppins">
       <div className="px-5">
         <h1 className="text-[40px] font-semibold leading-[40px] mb-3">
           Checkout
         </h1>
-        <p className="text-body-text-color font-medium">
-          {" "}
-          Homepage / Checkout{" "}
-        </p>
+        <p className="text-body-text-color font-medium">Homepage / Checkout</p>
       </div>
       <div className="flex flex-col-reverse md:flex-row gap-10 my-14">
         <div className=" w-full md:w-1/2 flex items-center justify-center flex-col">
@@ -112,20 +113,30 @@ const Checkout = () => {
             </form>
           </div>
         </div>
-        <div className=" w-full md:w-1/2 flex flex-col">
+        <div className=" w-full md:w-1/2 flex flex-col items-center">
           <div className="mb-6 px-5">
             <h2 className="text-2xl text-[32px] font-semibold text-primary leading-8">
               Order summary
             </h2>
           </div>
           <div className="flex flex-col justify-center w-full gap-6 px-5">
-            <CheckoutCard />
-            <CheckoutCard />
-            <CheckoutCard />
-            <CheckoutCard />
-            <CheckoutCard />
-            <CheckoutCard />
-          </div>{" "}
+            {cart.length === 0 ? (
+              <div>Your cart is empty.</div>
+            ) : (
+              cart.map((item) => <CheckoutCard key={item.id} {...item} />)
+            )}
+          </div>
+          <div className="flex items-center justify-between my-4 w-full md:w-[618px]">
+            <p className="text-2xl">Total:</p>
+            <p className="text-5xl font-semibold text-green-600 ">
+              ${total.toFixed(2)}
+            </p>
+          </div>
+          <div className="flex items-center justify-center">
+            <button className="bg-vibrant w-full md:w-[618px] text-white  py-2.5 rounded-lg">
+              Proceed
+            </button>
+          </div>
         </div>
       </div>
     </section>

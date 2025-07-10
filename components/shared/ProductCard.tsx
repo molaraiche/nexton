@@ -1,8 +1,11 @@
+"use client";
+import { useCart } from "@/context/CartContext";
 import { productType } from "@/types";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 
 const ProductCard = ({
+  id,
   image,
   title,
   category,
@@ -11,11 +14,28 @@ const ProductCard = ({
   price,
   oldPrice,
 }: productType) => {
+  const { addToCart } = useCart();
+
+  // create an object of the props to pass to addToCart
+  const product = {
+    id,
+    image,
+    title,
+    category,
+    review,
+    sales,
+    price,
+    oldPrice,
+  };
+
   return (
     <div className="font-poppins flex flex-col relative w-[309px] h-[448px]">
       <div className="">
         <div className="flex items-center justify-end">
-          <div className="w-9 h-9 bg-white flex items-center justify-center rounded-full absolute top-5 right-5 cursor-pointer z-10">
+          <div
+            onClick={() => addToCart(product)}
+            className="w-9 h-9 bg-white flex items-center justify-center rounded-full absolute top-5 right-5 cursor-pointer z-10"
+          >
             <Image
               src={"/assets/cart.svg"}
               width={16}
