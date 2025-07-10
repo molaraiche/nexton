@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import SmallFooter from "../components/SmallFooter";
 import Footer from "../components/Footer";
 import CartProviderWrapper from "./providers/CartProviderWrapper";
+import { Bounce, ToastContainer } from "react-toastify";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -35,6 +36,19 @@ export default function RootLayout({
             <Footer />
             <SmallFooter />
           </main>
+          <ToastContainer
+            position="bottom-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            transition={Bounce}
+          />
         </CartProviderWrapper>
       </body>
     </html>

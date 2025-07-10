@@ -7,6 +7,7 @@ import React, {
   useEffect,
 } from "react";
 import { productType } from "@/types";
+import { Bounce, toast } from "react-toastify";
 
 type CartItem = productType & { quantity: number };
 
@@ -54,7 +55,17 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
             : item
         );
       }
-      console.log("Adding new product to cart:", product);
+      toast.success("Product has been added to cart", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
       return [...prev, { ...product, quantity: 1 }];
     });
   };

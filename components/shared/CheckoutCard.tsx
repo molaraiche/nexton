@@ -10,7 +10,7 @@ const CheckoutCard = ({
   oldPrice,
 }: productType) => {
   return (
-    <div className="flex items-center justify-center w-full md:w-[618px] h-auto md:h-[132px] border border-border font-poppins p-6">
+    <div className="flex items-center justify-center w-full rounded-xl h-auto md:h-[132px] border border-border font-poppins p-6">
       <div className="mr-6">
         <Image
           src={image}
@@ -20,7 +20,7 @@ const CheckoutCard = ({
           className="rounded-xl"
         />
       </div>
-      <div className="w-full md:w-[425px] flex items-center">
+      <div className="w-full  flex items-center">
         <h5 className="text-primary font-semibold leading-6"> {title}</h5>
 
         <div className=" flex items-center justify-center  rounded-full p-2">
