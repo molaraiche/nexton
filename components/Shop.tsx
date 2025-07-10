@@ -24,6 +24,11 @@ const Shop = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [minPrice, setMinPrice] = useState<number>(100);
+  const [maxPrice, setMaxPrice] = useState<number>(500);
+  const [priceLimits, setPriceLimits] = useState({ min: 0, max: 1000 });
+  const [selectedSort, setSelectedSort] = useState("");
+
   const router = useRouter();
 
   useEffect(() => {
@@ -40,10 +45,15 @@ const Shop = () => {
     } else {
       params.delete("search");
     }
+    if (selectedSort) {
+      params.set("sort", selectedSort);
+    } else {
+      params.delete("sort");
+    }
 
     router.push(`/shop?${params.toString()}`, { scroll: false });
     setCurrentPage(1);
-  }, [selectedCategory, searchQuery, router]);
+  }, [selectedCategory, searchQuery, router, selectedSort]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -66,6 +76,17 @@ const Shop = () => {
         if (searchQuery) {
           query = query.ilike("title", `%${searchQuery}%`);
         }
+        if (minPrice !== null) {
+          query = query.gte("price", minPrice);
+        }
+
+        if (maxPrice !== null) {
+          query = query.lte("price", maxPrice);
+        }
+        if (selectedSort) {
+          const [column, order] = selectedSort.split(".");
+          query = query.order(column, { ascending: order === "asc" });
+        }
 
         const { data, error, count } = await query;
 
@@ -84,7 +105,42 @@ const Shop = () => {
     };
 
     fetchProducts();
-  }, [selectedCategory, searchQuery, currentPage]);
+  }, [
+    selectedCategory,
+    searchQuery,
+    currentPage,
+    minPrice,
+    maxPrice,
+    selectedSort,
+  ]);
+  useEffect(() => {
+    const fetchPriceLimits = async () => {
+      const { data: minData } = await supabase
+        .from("products")
+        .select("price")
+        .order("price", { ascending: true })
+        .limit(1)
+        .single();
+
+      const { data: maxData } = await supabase
+        .from("products")
+        .select("price")
+        .order("price", { ascending: false })
+        .limit(1)
+        .single();
+
+      if (minData && maxData) {
+        const min = parseFloat(Number(minData.price).toFixed(2));
+        const max = parseFloat(Number(maxData.price).toFixed(2));
+
+        setPriceLimits({ min, max });
+        setMinPrice(min);
+        setMaxPrice(max);
+      }
+    };
+
+    fetchPriceLimits();
+  }, []);
 
   return (
     <section className="container mx-auto mt-10 mb-20 px-4 font-poppins">
@@ -97,7 +153,6 @@ const Shop = () => {
         </button>
       </div>
       <div className="flex flex-col lg:flex-row gap-8">
-        {/* Sidebar */}
         {isFilterOpen && (
           <div className="fixed top-40 inset-0 z-50 bg-white p-4 shadow-lg lg:hidden">
             <div className="flex justify-between items-center mb-4 ">
@@ -114,15 +169,39 @@ const Shop = () => {
               selectedCategory={selectedCategory}
               onChange={(cat) => {
                 setSelectedCategory(cat);
-                setIsFilterOpen(false); // auto-close on select
+                setIsFilterOpen(false);
               }}
             />
-            <PriceRange />
-            <Sort />
+            <PriceRange
+              minPrice={minPrice}
+              maxPrice={maxPrice}
+              setMinPrice={setMinPrice}
+              setMaxPrice={setMaxPrice}
+              priceLimits={priceLimits}
+            />
+            <Sort
+              selectedSort={selectedSort}
+              setSelectedSort={setSelectedSort}
+            />
           </div>
         )}
-
-        {/* Main Content */}
+        <div className="hidden md:flex justify-between  mb-4 flex-col ">
+          <Categories
+            selectedCategory={selectedCategory}
+            onChange={(cat) => {
+              setSelectedCategory(cat);
+              setIsFilterOpen(false);
+            }}
+          />
+          <PriceRange
+            minPrice={minPrice}
+            maxPrice={maxPrice}
+            setMinPrice={setMinPrice}
+            setMaxPrice={setMaxPrice}
+            priceLimits={priceLimits}
+          />
+          <Sort selectedSort={selectedSort} setSelectedSort={setSelectedSort} />
+        </div>
         <div className="w-full lg:w-3/4 flex flex-col items-center gap-5">
           {loading && (
             <div className="h-[50vh] flex items-center justify-center">
@@ -130,7 +209,12 @@ const Shop = () => {
             </div>
           )}
 
-          {error && <div className="text-red-600">{error}</div>}
+          {error && (
+            <div className="h-[80vh] flex items-center justify-center font-semibold">
+              {" "}
+              <h1>There is an issue in founding the necessary products</h1>{" "}
+            </div>
+          )}
 
           {!loading && !error && (
             <div className="flex flex-wrap justify-center gap-5">

@@ -1,26 +1,34 @@
-import { sort } from "@/constants/filter/sort";
 import React from "react";
+import { sort } from "@/constants/filter/sort";
 
-const Sort = () => {
+type SortProps = {
+  selectedSort: string;
+  setSelectedSort: (value: string) => void;
+};
+
+const Sort = ({ selectedSort, setSelectedSort }: SortProps) => {
   return (
     <div className="font-poppins mb-10">
       <h3 className="text-lg text-primary text-[28px] font-semibold">
         Sort order
       </h3>
-      <div className="">
-        {sort.map((sort) => (
+      <div>
+        {sort.map((item) => (
           <div
             className="flex items-center gap-2 mt-4 cursor-pointer"
-            key={sort.id}
+            key={item.id}
+            onClick={() => setSelectedSort(item.value)}
           >
             <input
-              type="checkbox"
-              name={sort.name}
-              id={sort.name}
-              className="custom-checkbox"
+              type="radio"
+              name="sortOrder"
+              id={item.name}
+              checked={selectedSort === item.value}
+              onChange={() => setSelectedSort(item.value)}
+              className="custom-radio"
             />
-            <label htmlFor={sort.name} className="text-body-text-color text-sm">
-              {sort.name}
+            <label htmlFor={item.name} className="text-body-text-color text-sm">
+              {item.name}
             </label>
           </div>
         ))}

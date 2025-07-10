@@ -1,6 +1,4 @@
 "use client";
-import Link from "next/link";
-import { FiUser } from "react-icons/fi";
 import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
@@ -17,9 +15,6 @@ const Manage = () => {
         }`}
       >
         <div className="flex items-center gap-5 flex-col md:flex-row">
-          <Link href="/login" className="">
-            <FiUser className="w-6 h-6 text-default md:text-body-text-color" />
-          </Link>
           <Cart />
         </div>
       </div>
