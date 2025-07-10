@@ -1,4 +1,4 @@
-import Slogan from "./Slogan";
+import Slogan from "./slogan";
 import ProductCard from "./shared/ProductCard";
 import { productType } from "@/types";
 import { supabase } from "@/supabase";
