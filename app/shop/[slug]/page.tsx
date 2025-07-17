@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FaStar } from "react-icons/fa";
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 import AddToCart from "@/components/AddToCart";
+import ImgHandler from "@/components/shared/ImgHandler";
 
 interface ProductDetailsProps {
   params: {
@@ -70,13 +71,9 @@ const ProductDetails = async ({ params }: ProductDetailsProps) => {
               className="rounded-2xl"
             />
           </div>
+
           <div className="">
-            <Image
-              src={product.image}
-              alt={product.title}
-              width={640}
-              height={680}
-            />
+            <ImgHandler src={product.image} alt={product.title} />
           </div>
         </div>
         <div className="border rounded-2xl border-border w-[40%] p-8">
@@ -152,8 +149,6 @@ const ProductDetails = async ({ params }: ProductDetailsProps) => {
           </div>
         </div>
       </div>
-      <div className="bg-green-500">Description</div>
-      <div className="bg-yellow-500">Recommandation</div>
     </section>
   );
 };
