@@ -2,6 +2,7 @@
 import { useCart } from "@/context/CartContext";
 import { productType } from "@/types";
 import Image from "next/image";
+import Link from "next/link";
 import { FaStar } from "react-icons/fa";
 import { FaBagShopping } from "react-icons/fa6";
 
@@ -14,6 +15,7 @@ const ProductCard = ({
   sales,
   price,
   oldPrice,
+  slug,
 }: productType) => {
   const { addToCart } = useCart();
   const product = {
@@ -25,10 +27,14 @@ const ProductCard = ({
     sales,
     price,
     oldPrice,
+    slug,
   };
 
   return (
-    <div className="font-poppins flex flex-col relative w-[309px] h-[448px]">
+    <Link
+      href={`/shop/${slug}`}
+      className="font-poppins flex flex-col relative w-[309px] h-[448px]"
+    >
       <div className="">
         <div className="flex items-center justify-end">
           <div className="w-9 h-9 bg-white flex items-center justify-center rounded-full absolute top-5 right-5 cursor-pointer z-10 ">
@@ -68,7 +74,7 @@ const ProductCard = ({
           <span className="mx-1"> ({sales ? sales : 0})</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
