@@ -21,4 +21,11 @@ export interface productType {
   price: number;
   oldPrice: number;
   quantity?: number;
+  slug?: string;
+  size?: string;
+}
+
+export interface AddToCartProps {
+  product: productType;
+  quantity: number;
 }

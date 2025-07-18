@@ -10,7 +10,7 @@ import { MdDelete } from "react-icons/md";
 import { NumberTicker } from "./magicui/number-ticker";
 
 const Cart = () => {
-  const { cart, totalItems, removeFromCart } = useCart();
+  const { cart, totalProducts, removeFromCart } = useCart();
   const [isVisible, setIsVisible] = useState(false);
 
   return (
@@ -23,7 +23,7 @@ const Cart = () => {
         <div className="relative font-poppins flex flex-row-reverse">
           <span className="bg-vibrant text-default w-5 h-5 flex items-center justify-center rounded-full absolute -top-2 -right-2">
             <NumberTicker
-              value={totalItems}
+              value={totalProducts}
               className="whitespace-pre-wrap tracking-tighter"
             />
           </span>
