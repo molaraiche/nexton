@@ -75,6 +75,25 @@ const ProductDetails = async ({ params }: ProductDetailsProps) => {
           </div>
         </div>
         <div className="border rounded-2xl border-border w-full md:w-[40%] p-8 mt-5 md:mt-0">
+          <div className="mt-5">
+            <h2 className="text-4xl font-bold text-primary">
+              {" "}
+              {product.title}{" "}
+            </h2>
+            <p className="italic font-medium text-body-text-color my-5">
+              Elevate your everyday style with a product designed to blend
+              innovation, comfort, and elegance. Crafted with attention to
+              detail and built for those who demand both performance and
+              aesthetics, it seamlessly fits into your lifestyle—whether
+              you&apos;re on the move or unwinding. Engineered for durability
+              and made with premium materials, it delivers lasting quality that
+              speaks for itself. This isn’t just about what you use—it’s about
+              how it makes you feel: confident, empowered, and effortlessly
+              ahead. Discover the difference a well-crafted essential can make.
+              It&apos;s more than just a product—it’s a statement of purpose,
+              refinement, and modern living.
+            </p>
+          </div>
           <div className="flex items-center justify-between ">
             <div className="flex items-center text-body-text-color font-semibold gap-1 mt-4">
               <FaStar className="text-[#FBBF24]" />
@@ -100,18 +119,6 @@ const ProductDetails = async ({ params }: ProductDetailsProps) => {
             </div>
           </div>
           <div className="">
-            <p className="text-primary font-semibold"> Size: S </p>
-            <div className="flex items-center justify-between">
-              {product.size.map((l: string) => (
-                <span
-                  className="w-[72px] h-11 border boder-border text-body-text-color font-semibold flex items-center justify-center rounded-[10px]"
-                  key={l}
-                >
-                  {" "}
-                  {l}{" "}
-                </span>
-              ))}
-            </div>
             <Quantity quantity={0} product={product} />
           </div>
         </div>
