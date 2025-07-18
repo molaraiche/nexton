@@ -5,13 +5,7 @@ import { FaStar } from "react-icons/fa";
 import ImgHandler from "@/components/shared/ImgHandler";
 import Quantity from "@/components/Quantity";
 
-interface ProductDetailsProps {
-  params: {
-    slug: string;
-  };
-}
-
-const Page = async ({ params }: ProductDetailsProps) => {
+const Page = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
 
   const { data: product, error } = await supabase
