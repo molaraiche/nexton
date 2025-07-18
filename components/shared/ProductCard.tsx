@@ -16,6 +16,7 @@ const ProductCard = ({
   price,
   oldPrice,
   slug,
+  quantity,
 }: productType) => {
   const { addToCart } = useCart();
   const product = {
@@ -28,6 +29,7 @@ const ProductCard = ({
     price,
     oldPrice,
     slug,
+    quantity,
   };
 
   return (
@@ -39,7 +41,7 @@ const ProductCard = ({
         <div className="flex items-center justify-end">
           <div className="w-9 h-9 bg-white flex items-center justify-center rounded-full absolute top-5 right-5 cursor-pointer z-10 ">
             <FaBagShopping
-              onClick={() => addToCart(product)}
+              onClick={() => addToCart({ ...product, quantity: 1 })}
               className="text-primary hover:text-vibrant w-5 h-5 ease-in-out duration-200"
             />
           </div>

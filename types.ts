@@ -23,3 +23,8 @@ export interface productType {
   quantity?: number;
   slug?: string;
 }
+
+export interface AddToCartProps {
+  product: productType;
+  quantity: number;
+}

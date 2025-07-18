@@ -2,9 +2,8 @@ import { supabase } from "@/supabase";
 import Image from "next/image";
 import Link from "next/link";
 import { FaStar } from "react-icons/fa";
-import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
-import AddToCart from "@/components/AddToCart";
 import ImgHandler from "@/components/shared/ImgHandler";
+import Quantity from "@/components/Quantity";
 
 interface ProductDetailsProps {
   params: {
@@ -36,11 +35,10 @@ const ProductDetails = async ({ params }: ProductDetailsProps) => {
       </div>
     );
   }
-  //   console.log(product.images);
   return (
     <section className="container mx-auto p-6 font-poppins">
-      <div className=" flex justify-center">
-        <div className=" flex w-[60%] gap-6">
+      <div className=" flex justify-center flex-col md:flex-row">
+        <div className=" flex w-full md:w-[60%] gap-6">
           <div className="flex flex-col gap-4 mt-4 ">
             <Image
               src={product.image}
@@ -76,7 +74,7 @@ const ProductDetails = async ({ params }: ProductDetailsProps) => {
             <ImgHandler src={product.image} alt={product.title} />
           </div>
         </div>
-        <div className="border rounded-2xl border-border w-[40%] p-8">
+        <div className="border rounded-2xl border-border w-full md:w-[40%] p-8 mt-5 md:mt-0">
           <div className="flex items-center justify-between ">
             <div className="flex items-center text-body-text-color font-semibold gap-1 mt-4">
               <FaStar className="text-[#FBBF24]" />
@@ -114,38 +112,7 @@ const ProductDetails = async ({ params }: ProductDetailsProps) => {
                 </span>
               ))}
             </div>
-            <div className=" my-8 flex items-center justify-between">
-              <form
-                action=""
-                className="flex items-center justify-center w-[110px] h-10 bg-gray-bg  rounded-lg"
-              >
-                {" "}
-                <CiCircleMinus className="w-6 h-6 cursor-pointer" />
-                <input
-                  type="number"
-                  placeholder="max 10"
-                  value={1}
-                  className="w-[40px] text-center outline-none text-body-text-color font-medium"
-                />
-                <CiCirclePlus className="w-6 h-6 cursor-pointer" />
-              </form>
-              <AddToCart product={product} />
-            </div>
-            <div className="">
-              <div className="flex items-center justify-between text-body-text-color">
-                <div className="">{product.price} x1</div> {/* add quanitity */}
-                <div className="">{product.price}</div>
-              </div>
-              <div className="flex items-center justify-between text-body-text-color">
-                <div className="">Tax estimate</div>
-                <div className="">$0</div>
-              </div>
-              <hr className="text-border" />
-              <div className="flex items-center justify-between font-semibold text-primary">
-                <div className="">Total</div>
-                <div className="">${product.price} </div>
-              </div>
-            </div>
+            <Quantity quantity={0} product={product} />
           </div>
         </div>
       </div>
