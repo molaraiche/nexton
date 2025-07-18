@@ -5,8 +5,9 @@ import { FaStar } from "react-icons/fa";
 import ImgHandler from "@/components/shared/ImgHandler";
 import Quantity from "@/components/Quantity";
 
-const Page = async ({ params }: { params: { slug: string } }) => {
-  const { slug } = params;
+const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug;
 
   const { data: product, error } = await supabase
     .from("products")
