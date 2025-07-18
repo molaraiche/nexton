@@ -11,7 +11,7 @@ interface ProductDetailsProps {
   };
 }
 
-const ProductDetails = async ({ params }: ProductDetailsProps) => {
+const Page = async ({ params }: ProductDetailsProps) => {
   const { slug } = params;
 
   const { data: product, error } = await supabase
@@ -127,4 +127,4 @@ const ProductDetails = async ({ params }: ProductDetailsProps) => {
   );
 };
 
-export default ProductDetails;
+export default Page;
